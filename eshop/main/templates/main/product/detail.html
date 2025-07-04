@@ -6,7 +6,15 @@
 {% endblock title %}
 
 {% block content %}
-    <div class="detail-product">
-        <img src="{% if product.image %}{{ product.image.url }}{% else 'img/no_image.png' %}{% endif %}" alt="">
+<div class="detail-product">
+    <div class="detail-img">
+        <img src="{% if product.image %}{{ product.image.url }}{% else 'img/no_image.png' %}{% endif %}" alt="" class="detail-image">
     </div>
+    <div class="detail-description">
+        <h2>{{ product.name }}</h2>
+        <h3>Category: {{ product.category }}</h3>
+        <p>Description: {{ product.description }}</p>
+        <a href="#" class="cart-btn">Add to cart</a>
+    </div>
+</div>
 {% endblock content %}
