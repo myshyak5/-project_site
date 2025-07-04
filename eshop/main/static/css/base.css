@@ -17,3 +17,10 @@ body {
 .login-button {
     margin: 3px;
 }
+.home {
+    display: flex;
+    flex-direction: column;
+}
+.home-btn {
+    margin-top: 4px;
+}
