@@ -9,7 +9,7 @@ def product_details(request, slug):
 
 
 
-# def index_list(request, slug):
-#     product = get_object_or_404(Product, slug=slug, available=True)
+def index_list(request):
+    category = Category.objects.filter()
 
-#     return render(request, 'main/index/index.html', {'product':product})
+    return render(request, 'main/index/index.html', {'category':category})
