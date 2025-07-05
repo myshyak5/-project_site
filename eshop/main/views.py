@@ -22,7 +22,7 @@ def product_list(request, category_slug=None):
         paginator = Paginator(products.filter(category=category), 10)
         current_page = paginator.page(int(page))
 
-    return render(request, 'main/index/index.html',
+    return render(request, 'main/product/list.html',
                   {'category':category,
                    'categories':categories,
                    'products':current_page,
