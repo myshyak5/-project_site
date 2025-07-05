@@ -8,12 +8,22 @@
 {% block content %}
 <div class="detail-product">
     <div class="detail-img">
-        <img src="{% if product.image %}{{ product.image.url }}{% else 'img/no_image.png' %}{% endif %}" alt="" class="detail-image">
+        <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static 'img/no_image.png' %}{% endif %}" alt="" class="detail-image">
     </div>
     <div class="detail-description">
         <h2>{{ product.name }}</h2>
         <h3>Category: {{ product.category }}</h3>
+        <h4>Size: {{ product.size }}</h4>
+        <h4>Gender: {{ product.gender }}</h4>
         <p>Description: {{ product.description }}</p>
+        {% if product.discount %}
+            <div class="cart_discount">
+                <p class="line">{{ product.price }}</p>
+                <p>{{ product.sell_price }}</p>
+            </div>
+        {% else %}
+            <p class="price">{{ product.price }}</p>
+        {% endif %}
         <a href="#" class="cart-btn">Add to cart</a>
     </div>
 </div>
