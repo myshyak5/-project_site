@@ -6,7 +6,10 @@ header {
     display: flex;
 }
 .header-nav {
-    padding-top: 0;
+    padding-top: 4px;
+}
+.header-list {
+    display: flex;
 }
 body {
     margin: 0;
