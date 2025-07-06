@@ -138,7 +138,6 @@ footer {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    text-align: center;
     align-items: center;
     width: 200px;
     height: 325px;
@@ -156,17 +155,28 @@ footer {
     height: 195px;
 }
 .title-card {
-    margin: 25px 0 0 0;
+    margin: 35px 0 0 0;
 }
 .price {
-    font-size: 20px;
-    font-weight: 700;
-    margin-top: -10px;
-
+    font-size: 18px;
+    padding: 0;
+    margin: 35px 0 10px 0;
+}
+.cart_discount{
+    display: flex;
+    gap: 4px;
+}
+.cart_discount p{
+    font-size: 18px;
+    padding: 0;
+    margin: 35px 0 10px 0;
+}
+.line {
+    opacity: 0.7;
+    text-decoration: line-through;
 }
 .detail-product {
     display: flex;
-    margin-top: 80px;
 }
 .detail-image {
     width: 650px;
@@ -175,15 +185,6 @@ footer {
 .detail-description {
     margin-left: 40px;
     margin-top: 40px;
-}
-.detail-description p {
-    margin-top: 30px;
-    min-width: 700px;
-}
-.cart-discount {
-    display: flex;
-    gap: 2;
-    margin-top: -10px;
 }
 .cart-btn {
     display: flex;
@@ -200,10 +201,59 @@ footer {
 .cart-btn:hover {
     border: 1px solid rgb(0, 0, 0);
 }
-.line {
-    opacity: 0.7;
-    text-decoration: line-through;
-}
 .llist {
     display: flex;
+}
+/* .main {
+
+} */
+.main-title {
+    text-align: center;
+}
+.items {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 225px);
+    width: 100%;
+    max-width: 1300px;
+    justify-content: center;
+    justify-items: center;
+    column-gap: 0px;
+    row-gap: 10px;
+    margin: 0 auto;
+}
+.sidebar {
+    width: 200px;
+    text-align: center;
+}
+.sidebar ul {
+    display: flex;
+    flex-direction: column;
+}
+.sidebar ul li {
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    height: 40px;
+    width: 200px;
+    margin-bottom: 2px;
+}
+.sidebar ul li a{
+    display: flex;
+    height: 40px;
+    width: 200px;
+    justify-content: center;
+    align-items: center;
+    
+}
+ /* .sel-div {
+    
+ } */
+.selected {
+    display: flex;
+    height: 40px;
+    width: 200px;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    border-radius: 5px;
 }
