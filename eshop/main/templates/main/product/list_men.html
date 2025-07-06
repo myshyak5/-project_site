@@ -15,7 +15,7 @@
                     <li {% if category.slug == c.slug %}class="selected"{% endif %}>
                         <a href="{{ c.get_absolute_url }}">{{ c.name }}</a>
                     </li>
-                {% endif %}
+                {% endfor %}
             </ul>
         </div>
         <div class="main">
