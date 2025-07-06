@@ -54,15 +54,14 @@ header {
 }
 footer {
     position: fixed;
+    display: flex;
     bottom: 0;
     height: 40px;
     right: 0%;
     padding: 5px;
 }
 .git_project {
-    position: absolute;
     height: 40px;
-    transform: translateX(-100%);
 }
 .git_img {
     height: 40px;
@@ -127,10 +126,13 @@ footer {
     border: 1px solid rgb(0, 0, 0);
 }
 .home-cards {
+    position: absolute;
     display: flex;
     justify-content: center;
-    margin: 100px 0;
     gap: 60px;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
 }
 .home-card {
     display: flex;
