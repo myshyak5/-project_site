@@ -18,15 +18,35 @@ def index_list(request, category_slug=None):
                    'slug_url': category_slug})
 
 
-def men_list(request, slug):
-    product = get_object_or_404(Product, slug=slug, available=True, gender='male')
+def men_list(request, slug=None):
+    category = None
+    categories = Category.objects.all()
+    products = Product.objects.filter(available=True, gender='male')
+    
+    if slug:
+        category = get_object_or_404(Category, slug=slug)
+        products = Product.objects.filter(category=category, gender='male')
+    
+    return render(request, 'main/product/list_men.html',
+                  {'category':category,
+                   'categories':categories,
+                   'products':products,
+                   'slug_url': slug})
 
-    return render(request, 'main/product/list_men.html', {'product':product})
-
-def women_list(request, slug):
-    product = get_object_or_404(Product, slug=slug, available=True, gender='female')
-
-    return render(request, 'main/product/list_women.html', {'product':product})
+def women_list(request, slug=None):
+    category = None
+    categories = Category.objects.all()
+    products = Product.objects.filter(available=True, gender='female')
+    
+    if slug:
+        category = get_object_or_404(Category, slug=slug)
+        products = Product.objects.filter(category=category, gender='female')
+    
+    return render(request, 'main/product/list_women.html',
+                  {'category':category,
+                   'categories':categories,
+                   'products':products,
+                   'slug_url': slug})
 
 def product_details(request, slug):
     product = get_object_or_404(Product, slug=slug, available=True)
