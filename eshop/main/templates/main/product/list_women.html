@@ -5,7 +5,7 @@
 
 {% block content %}
     <div class="llist">
-        <div class="slidebar">
+        <div class="sidebar">
             <h3>Categories</h3>
             <ul>
                 <li {% if not category %}class="selected"{% endif %}>
@@ -20,7 +20,7 @@
         </div>
         <div class="main">
             <div class="main-title">
-                {% if category %}{{ category.name }}{% else %}Products{% endif %}
+                {% if category %}{{ category.name }}{% else %}<h3>Products</h3>{% endif %}
             </div>
             <div class="product-list">
                 <div class="items">

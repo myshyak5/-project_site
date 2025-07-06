@@ -207,3 +207,42 @@ footer {
 .llist {
     display: flex;
 }
+.main {
+
+}
+.main-title {
+    text-align: center;
+    font-size: 36px;
+    margin: 10px 0 65px 0;
+}
+.items {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 225px);
+    width: 100%;
+    max-width: 1300px;
+    justify-content: center;
+    justify-items: center;
+    column-gap: 0px;
+    row-gap: 10px;
+    margin: 0 auto;
+}
+.sidebar {
+
+}
+.sidebar ul li {
+    /* font-size: 20px;
+    width: 165px;
+    height: 15px;
+    margin-bottom: 5px; */
+}
+.sidebar ul li a{
+    /* margin-left: 15px;
+    width: 165px; */
+}
+.sidebar ul {
+    text-align: center;
+}
+.selected {
+    border: 1px solid black;
+    border-radius: 5px;
+}
