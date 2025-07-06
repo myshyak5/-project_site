@@ -22,7 +22,9 @@ def product_list(request, category_slug=None):
         paginator = Paginator(products.filter(category=category), 10)
         current_page = paginator.page(int(page))
 
-    return render(request, 'main/product/list.html',
+# сделай тут main/product/detail.html а второй product_list с main/index/index.html
+# я редачила тут чтобы посмотреть что вышло
+    return render(request, 'main/index/index.html',
                   {'category':category,
                    'categories':categories,
                    'products':current_page,
