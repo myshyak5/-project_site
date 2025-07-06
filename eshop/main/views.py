@@ -27,7 +27,7 @@ def men_list(request, slug=None):
         category = get_object_or_404(Category, slug=slug)
         products = Product.objects.filter(category=category, gender='male')
     
-    return render(request, 'main/product/men.html',
+    return render(request, 'main/product/list_men.html',
                   {'category':category,
                    'categories':categories,
                    'products':products,
@@ -42,7 +42,7 @@ def women_list(request, slug=None):
         category = get_object_or_404(Category, slug=slug)
         products = Product.objects.filter(category=category, gender='female')
     
-    return render(request, 'main/product/women.html',
+    return render(request, 'main/product/list_women.html',
                   {'category':category,
                    'categories':categories,
                    'products':products,
