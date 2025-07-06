@@ -11,7 +11,10 @@
 </head>
 
 <body>
-    <header> 
+    <header>
+        <div class="header-logo">
+            <a href="/"><img src="{% static 'img/logo.png' %}" alt="" class="main-logo"></a>
+        </div>
         <div class="header-div">
             <nav class="header-nav">
                 <ul class="header-list">
@@ -21,12 +24,8 @@
                     <li>
                         <a href="#" class="nav-a">Shop</a>
                     </li>
-
                 </ul>
             </nav>
-            <div class="header-logo">
-                <a href="/"><img src="{% static 'img/logo.png' %}" alt="" class="main-logo"></a>
-            </div>
             <div class="header-profile">
                 <a href="/admin" class="login-button">Login</a>
             </div>
