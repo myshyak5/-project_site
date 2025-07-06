@@ -6,21 +6,25 @@
 {% block content %}
     <div class="llist">
         <div class="sidebar">
-            <h3>Categories</h3>
+            <h4>Categories</h4>
             <ul>
-                <li {% if not category %}class="selected"{% endif %}>
-                    <a href="{% url 'main:product_list' %}">All</a>
+                <li>
+                    <a href="{% url 'main:product_list' %}">
+                        <div {% if not category %}class="selected"{% endif %}>All</div>
+                    </a>
                 </li>
                 {% for c in categories %}
-                    <li {% if category.slug == c.slug %}class="selected"{% endif %}>
-                        <a href="{{ c.get_absolute_url }}">{{ c.name }}</a>
+                    <li>
+                        <a href="{{ c.get_absolute_url }}">
+                            <div {% if category.slug == c.slug %}class="selected"{% endif %}>{{ c.name }}</div>
+                        </a>
                     </li>
                 {% endfor %}
             </ul>
         </div>
         <div class="main">
             <div class="main-title">
-                {% if category %}{{ category.name }}{% else %}Products{% endif %}
+                {% if category %}<h4>{{ category.name }}</h4>{% else %}<h4>Products</h4>{% endif %}
             </div>
             <div class="product-list">
                 <div class="items">
@@ -33,10 +37,10 @@
                                     {% if product.discount %}
                                         <div class="cart_discount">
                                             <p class="line">{{ product.price }}</p>
-                                            <p>{{ product.sell_price }}</p>
+                                            <p>{{ product.sell_price }} RUB</p>
                                         </div>
                                     {% else %}
-                                        <p class="price">{{ product.price }}</p>
+                                        <p class="price">{{ product.price }} RUB</p>
                                     {% endif %}
                                 </a>
                             </div>
