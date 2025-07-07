@@ -9,13 +9,17 @@
             <h4>Categories</h4>
             <ul>
                 <li>
-                    <a href="{% url 'main:product_list' %}">
+                    <a href="{% if 'women' in request.path %}{% url 'main:product_list_women' %}
+                    {% elif 'men' in request.path %}{% url 'main:product_list_men' %}
+                    {% else %}{% url 'main:product_list' %}{% endif %}">
                         <div {% if not category %}class="selected"{% endif %}>All</div>
                     </a>
                 </li>
                 {% for c in categories %}
                     <li>
-                        <a href="{{ c.get_absolute_url }}">
+                        <a href="{% if 'women' in request.path %}{{ c.get_women_url}}
+                        {% elif 'men' in request.path %}{{ c.get_men_url}}
+                        {% else %}{{ c.get_absolute_url}}{% endif %}">
                             <div {% if category.slug == c.slug %}class="selected"{% endif %}>{{ c.name }}</div>
                         </a>
                     </li>
@@ -29,20 +33,20 @@
             <div class="product-list">
                 <div class="items">
                     {% for product in products %}
-                            <div class="item">
-                                <a href="{{ product.get_absolute_url }}" class="home-card">
-                                    <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static 'img/no_image.png' %}{% endif %}" alt="" class="card-img">
-                                    <h5 class="title-card">{{ product.name }}</h5>
-                                    {% if product.discount %}
-                                        <div class="cart_discount">
-                                            <p class="line">{{ product.price }}</p>
-                                            <p>{{ product.sell_price }} RUB</p>
-                                        </div>
-                                    {% else %}
-                                        <p class="price">{{ product.price }} RUB</p>
-                                    {% endif %}
-                                </a>
-                            </div>
+                        <div class="item">
+                            <a href="{{ product.get_absolute_url }}" class="home-card">
+                                <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static 'img/no_image.png' %}{% endif %}" alt="" class="card-img">
+                                <h5 class="title-card">{{ product.name }}</h5>
+                                {% if product.discount %}
+                                    <div class="cart_discount">
+                                        <p class="line">{{ product.price }}</p>
+                                        <p>{{ product.sell_price }} RUB</p>
+                                    </div>
+                                {% else %}
+                                    <p class="price">{{ product.price }} RUB</p>
+                                {% endif %}
+                            </a>
+                        </div>
                     {% endfor %}
                 </div>
             </div>
