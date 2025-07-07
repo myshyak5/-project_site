@@ -136,7 +136,7 @@ footer {
 .item-card {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between ;
     align-items: center;
     width: 200px;
     height: 325px;
@@ -172,6 +172,7 @@ footer {
     align-items: center;
     width: 195px;
     height: 195px;
+    margin-top: 3px;
     border-radius: 7px;
     background-image: linear-gradient(180deg, rgba(247, 247, 247, 1) 0%, rgb(194, 194, 194) 100%);
 }
