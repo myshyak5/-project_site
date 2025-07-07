@@ -17,9 +17,9 @@
                 </li>
                 {% for c in categories %}
                     <li>
-                        <a href="{% if 'women' in request.path %}{{ c.get_women_url}}
-                        {% elif 'men' in request.path %}{{ c.get_men_url}}
-                        {% else %}{{ c.get_absolute_url}}{% endif %}">
+                        <a href="{% if 'women' in request.path %}{{ c.get_women_url }}
+                        {% elif 'men' in request.path %}{{ c.get_men_url }}
+                        {% else %}{{ c.get_absolute_url }}{% endif %}">
                             <div {% if category.slug == c.slug %}class="selected"{% endif %}>{{ c.name }}</div>
                         </a>
                     </li>
