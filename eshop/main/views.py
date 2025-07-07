@@ -1,6 +1,9 @@
 from django.shortcuts import render, get_object_or_404
 from django.core.paginator import Paginator
 from .models import Category, Product
+from cart.forms import CartAddProductForm
+
+
 
 def index_list(request, category_slug=None):
     category = None
@@ -19,8 +22,10 @@ def index_list(request, category_slug=None):
 
 def product_details(request, slug):
     product = get_object_or_404(Product, slug=slug, available=True)
+    cart_product_form = CartAddProductForm
 
-    return render(request, 'main/product/detail.html', {'product':product})
+    return render(request, 'main/product/detail.html', {'product':product,
+                                                        'cart_product_form': cart_product_form})
 
 
 def product_list(request, gender=None, category_slug=None):
