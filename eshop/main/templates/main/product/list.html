@@ -13,9 +13,9 @@
                     {% elif gender == 'male' %}{% url 'main:product_list_men' %}
                     {% else %}{% url 'main:product_list' %}{% endif %}">
                         <div {% if not category %}class="selected"{% endif %}>
-                            {% if gender == 'female' %}Женская одежда
-                            {% elif gender == 'male' %}Мужская одежда
-                            {% else %}Все
+                            {% if gender == 'female' %}<h6>Женская одежда</h6>
+                            {% elif gender == 'male' %}<h6>Мужская одежда</h6>
+                            {% else %}<h6>Все</h6>
                             {% endif %}
                         </div>
                     </a>
@@ -25,7 +25,7 @@
                         <a href="{% if gender == 'female' %}{{ c.get_women_url }}
                         {% elif gender == 'male' %}{{ c.get_men_url }}
                         {% else %}{{ c.get_absolute_url }}{% endif %}">
-                            <div {% if category.slug == c.slug %}class="selected"{% endif %}>{{ c.name }}</div>
+                            <div {% if category.slug == c.slug %}class="selected"{% endif %}><h6>{{ c.name }}</h6></div>
                         </a>
                     </li>
                 {% endfor %}
@@ -41,7 +41,7 @@
                         <div class="item">
                             <a href="{{ product.get_absolute_url }}" class="item-card">
                                 <div class="div-img">
-                                    <img src="{% if product.image %}{% static 'img/grey_back.jpg' %}{% endif %}" alt="" class="empty-img">
+                                    <!-- <img src="{% if product.image %}{% static 'img/grey_back.jpg' %}{% endif %}" alt="" class="empty-img"> -->
                                     <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static 'img/no_image.png' %}{% endif %}" alt="" class="card-img">
                                 </div>
                                 <h5 class="title-card">{{ product.name }}</h5>
