@@ -12,19 +12,19 @@
     </div>
     <div class="detail-description">
         <h2>{{ product.name }}</h2>
-        <h3>Category: {{ product.category }}</h3>
-        <h4>Size: {{ product.size }}</h4>
-        <h4>Gender: {{ product.gender }}</h4>
-        <p>Description: {{ product.description }}</p>
+        <h3>Категория: {{ product.category }}</h3>
+        <h4>Размер: {{ product.size }}</h4>
+        <h4>Пол: {{ product.gender }}</h4>
+        <p>Описание: {{ product.description }}</p>
         {% if product.discount %}
             <div class="cart_discount">
-                <p class="line">{{ product.price }} RUB</p>
-                <p>{{ product.sell_price }}</p>
+                <p class="line">{{ product.price }}</p>
+                <p>{{ product.sell_price }} RUB</p>
             </div>
         {% else %}
             <p class="price">{{ product.price }} RUB</p>
         {% endif %}
-        <a href="#" class="cart-btn">Add to cart</a>
+        <a href="#" class="cart-btn">В корзину</a>
     </div>
 </div>
 {% endblock content %}

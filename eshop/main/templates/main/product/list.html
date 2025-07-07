@@ -6,13 +6,18 @@
 {% block content %}
     <div class="llist">
         <div class="sidebar">
-            <h4>Categories</h4>
+            <h4>Категории</h4>
             <ul>
                 <li>
                     <a href="{% if gender == 'female' %}{% url 'main:product_list_women' %}
                     {% elif gender == 'male' %}{% url 'main:product_list_men' %}
                     {% else %}{% url 'main:product_list' %}{% endif %}">
-                        <div {% if not category %}class="selected"{% endif %}>All</div>
+                        <div {% if not category %}class="selected"{% endif %}>
+                            {% if gender == 'female' %}Женская одежда
+                            {% elif gender == 'male' %}Мужская одежда
+                            {% else %}Все
+                            {% endif %}
+                        </div>
                     </a>
                 </li>
                 {% for c in categories %}
@@ -28,14 +33,17 @@
         </div>
         <div class="main">
             <div class="main-title">
-                {% if category %}<h4>{{ category.name }}</h4>{% else %}<h4>Products</h4>{% endif %}
+                {% if category %}<h4>{{ category.name }}</h4>{% else %}<h4>Вся одежда</h4>{% endif %}
             </div>
             <div class="product-list">
                 <div class="items">
                     {% for product in products %}
                         <div class="item">
-                            <a href="{{ product.get_absolute_url }}" class="home-card">
-                                <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static 'img/no_image.png' %}{% endif %}" alt="" class="card-img">
+                            <a href="{{ product.get_absolute_url }}" class="item-card">
+                                <div class="div-img">
+                                    <img src="{% if product.image %}{% static 'img/grey_back.jpg' %}{% endif %}" alt="" class="empty-img">
+                                    <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static 'img/no_image.png' %}{% endif %}" alt="" class="card-img">
+                                </div>
                                 <h5 class="title-card">{{ product.name }}</h5>
                                 {% if product.discount %}
                                     <div class="cart_discount">
