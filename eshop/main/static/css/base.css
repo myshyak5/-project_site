@@ -73,18 +73,19 @@ footer {
     margin: 0 auto;
     padding: 0 15px;
 }
+.header-div a:hover{
+    text-shadow: var(--text-shadow);
+}
 .header-logo {
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
     height: 60px;
+    z-index: 2;
 }
 .main-logo {
     height: 60px;
-}
-.header-div a:hover{
-    text-shadow: var(--text-shadow);
 }
 .main-logo:hover {
     filter: drop-shadow(var(--box-shadow));
