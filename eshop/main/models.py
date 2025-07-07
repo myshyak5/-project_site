@@ -1,10 +1,12 @@
 from django.db import models
 from django.urls import reverse
 
+GENDER = [('female', 'female'), ('male', 'male')]
 
 class Category(models.Model):
     name  = models.CharField(max_length=20, unique=True)
     slug = models.SlugField(max_length=20, unique=True)
+    # gender = models.CharField(max_length=10, choices=GENDER, default='female')
 
     class Meta:
         ordering = ['name']
@@ -21,8 +23,7 @@ class Category(models.Model):
         return reverse('main:product_list_men_by_category', args=[self.slug])
     def get_women_url(self):
         return reverse('main:product_list_women_by_category', args=[self.slug])
-
-
+    
 class Product(models.Model):
     category = models.ForeignKey(Category, related_name='products',
                                  on_delete=models.PROTECT)
@@ -30,7 +31,6 @@ class Product(models.Model):
     slug = models.SlugField(max_length=50)
     image = models.ImageField(upload_to='products/%Y/%m/%d', blank=True)
     description = models.TextField(blank=True)
-    GENDER = [('female', 'female'), ('male', 'male')]
     gender = models.CharField(max_length=10, choices=GENDER, default='female')
     size = models.IntegerField(max_length=10, default=30)
     price = models.DecimalField(max_digits=10, decimal_places=2)

@@ -9,16 +9,16 @@
             <h4>Categories</h4>
             <ul>
                 <li>
-                    <a href="{% if 'women' in request.path %}{% url 'main:product_list_women' %}
-                    {% elif 'men' in request.path %}{% url 'main:product_list_men' %}
+                    <a href="{% if gender == 'female' %}{% url 'main:product_list_women' %}
+                    {% elif gender == 'male' %}{% url 'main:product_list_men' %}
                     {% else %}{% url 'main:product_list' %}{% endif %}">
                         <div {% if not category %}class="selected"{% endif %}>All</div>
                     </a>
                 </li>
                 {% for c in categories %}
                     <li>
-                        <a href="{% if 'women' in request.path %}{{ c.get_women_url }}
-                        {% elif 'men' in request.path %}{{ c.get_men_url }}
+                        <a href="{% if gender == 'female' %}{{ c.get_women_url }}
+                        {% elif gender == 'male' %}{{ c.get_men_url }}
                         {% else %}{{ c.get_absolute_url }}{% endif %}">
                             <div {% if category.slug == c.slug %}class="selected"{% endif %}>{{ c.name }}</div>
                         </a>
