@@ -23,7 +23,6 @@ body {
     padding: 0;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 18px;
-    overflow-x: hidden;
 }
 ul {
     list-style: none;
@@ -202,6 +201,7 @@ footer {
     max-width: 1600px;
     margin: 0 7px;
     gap: 7px;
+    overflow: hidden;
 }
 .main {
     display: flex;
@@ -210,18 +210,25 @@ footer {
     width: 100%;
 }
 .items {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     justify-items: center;
     align-items: center;
-    gap: 7px;
+    row-gap: 5px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 12px;
+    box-sizing: border-box;
+    max-height: 75vh;
+    scrollbar-width: thin;
 }
 .sidebar {
     width: 250px;
     display: flex;
     text-align: center;
     flex-direction: column;
+    box-sizing: border-box;
+    
 }
 .sidebar ul {
     display: flex;
@@ -230,7 +237,7 @@ footer {
     align-items: center;
     width: 250px;
     margin: 0 auto;
-} 
+}
 .sidebar ul li a{
     display: flex;
     flex-direction: column;
