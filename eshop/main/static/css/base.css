@@ -70,7 +70,7 @@ footer {
     align-items: center;
     position: relative;
     margin: 0 auto;
-    padding: 0 15px;
+    padding: 0 30px;
 }
 .header-div a:hover{
     text-shadow: var(--text-shadow);
@@ -94,7 +94,7 @@ footer {
 }
 .header-list {
     display: flex;
-    gap: 10px;
+    gap: 30px;
     text-transform: uppercase;
 }
 .nav-a {
@@ -126,6 +126,22 @@ footer {
     left: 50%;
     top: 50%;
 }
+.item-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 325px;
+    border: 1px solid rgba(0, 0, 0, 0.37);
+    border-radius: 10px;
+    transition: all 0.3s linear;
+    background-color: white;
+}
+.item-card:hover {
+    transform: scale(1.05);
+    box-shadow: var(--box-shadow);
+}
 .home-card {
     display: flex;
     flex-direction: column;
@@ -142,7 +158,26 @@ footer {
     transform: scale(1.05);
     box-shadow: var(--box-shadow);
 }
+.div-img {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 195px;
+    height: 195px;
+}
+.empty-img {
+    position: relative;
+    width: 195px;
+    height: 195px;
+    border-radius: 7px;
+}
 .card-img {
+    position: absolute;
+    width: auto;
+    height: 195px;
+}
+.home-card-img {
     width: 195px;
     height: 195px;
 }
