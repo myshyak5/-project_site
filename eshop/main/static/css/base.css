@@ -227,13 +227,13 @@ footer {
     justify-content: space-between;
 }
 .detail-image {
-    min-width: 600px;
-    height: auto;
-    max-width: 700px;
+    height: 100%;
+    max-width: 50vw;
 }
 .detail-description {
     margin: 0 30px;
     text-align: justify;
+    margin-bottom: 48px;
 }
 .p-description {
     margin-bottom: 50px;
@@ -247,7 +247,6 @@ footer {
     background-color: #fff;
     border: 1px solid rgba(0, 0, 0, 0.37);
     border-radius: 5px;
-    margin-bottom: 20px;
 }
 .cart-btn:hover {
     box-shadow: var(--box-shadow);
