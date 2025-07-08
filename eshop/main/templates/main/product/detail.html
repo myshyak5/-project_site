@@ -24,7 +24,14 @@
         {% else %}
             <p class="price">{{ product.price }} RUB</p>
         {% endif %}
-        <a href="#" class="cart-btn">В корзину</a>
+        <form action="{% url 'cart:cart_add' product.id %}" class="qform" method="post">
+            <div class="cart-form">
+                {{ cart_product_form }}
+                {% csrf_token %}
+            </div>
+            <input type="submit" class="add-to-cart-btn" value="В корзину">
+        </form>
+        <!-- <a href="#" class="cart-btn">В корзину</a> -->
     </div>
 </div>
 {% endblock content %}
