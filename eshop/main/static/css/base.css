@@ -225,14 +225,14 @@ footer {
 }
 .detail-product {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
 }
 .detail-image {
     height: 100%;
     max-width: 50vw;
 }
 .detail-description {
-    margin: 0 30px;
+    margin: 0 40px;
     text-align: justify;
     margin-bottom: 48px;
 }

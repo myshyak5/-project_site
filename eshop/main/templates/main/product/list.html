@@ -9,12 +9,12 @@
             <h4>Категории</h4>
             <ul>
                 <li>
-                    <a href="{% if gender == 'female' %}{% url 'main:product_list_women' %}
-                    {% elif gender == 'male' %}{% url 'main:product_list_men' %}
+                    <a href="{% if gender == 'Женский' %}{% url 'main:product_list_women' %}
+                    {% elif gender == 'Мужской' %}{% url 'main:product_list_men' %}
                     {% else %}{% url 'main:product_list' %}{% endif %}">
                         <div {% if not category %}class="selected"{% endif %}>
-                            {% if gender == 'female' %}<h6>Женская одежда</h6>
-                            {% elif gender == 'male' %}<h6>Мужская одежда</h6>
+                            {% if gender == 'Женский' %}<h6>Женская одежда</h6>
+                            {% elif gender == 'Мужской' %}<h6>Мужская одежда</h6>
                             {% else %}<h6>Все</h6>
                             {% endif %}
                         </div>
@@ -22,8 +22,8 @@
                 </li>
                 {% for c in categories %}
                     <li>
-                        <a href="{% if gender == 'female' %}{{ c.get_women_url }}
-                        {% elif gender == 'male' %}{{ c.get_men_url }}
+                        <a href="{% if gender == 'Женский' %}{{ c.get_women_url }}
+                        {% elif gender == 'Мужской' %}{{ c.get_men_url }}
                         {% else %}{{ c.get_absolute_url }}{% endif %}">
                             <div {% if category.slug == c.slug %}class="selected"{% endif %}><h6>{{ c.name }}</h6></div>
                         </a>
