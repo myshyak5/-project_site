@@ -1,7 +1,7 @@
 from django.db import models
 from django.urls import reverse
 
-GENDER = [('female', 'female'), ('male', 'male')]
+GENDER = [('Женский', 'Женский'), ('Мужской', 'Мужской')]
 
 class Category(models.Model):
     name  = models.CharField(max_length=20, unique=True)
@@ -31,7 +31,7 @@ class Product(models.Model):
     slug = models.SlugField(max_length=50)
     image = models.ImageField(upload_to='products/%Y/%m/%d', blank=True)
     description = models.TextField(blank=True)
-    gender = models.CharField(max_length=10, choices=GENDER, default='female')
+    gender = models.CharField(max_length=10, choices=GENDER, default='Женский')
     size = models.IntegerField(max_length=10, default=30)
     price = models.DecimalField(max_digits=10, decimal_places=2)
     available = models.BooleanField(default=True)
