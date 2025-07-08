@@ -12,24 +12,32 @@
 
 <body>
     <header>
-        <div class="header-logo">
-            <a href="/"><img src="{% static 'img/logo.png' %}" alt="" class="main-logo"></a>
-        </div>
+        <!-- <div class="header-logo"> -->
+        <!-- </div> -->
         <div class="header-div">
             <nav class="header-nav">
                 <ul class="header-list">
                     <li>
-                        <a href="/" class="nav-a">Дом</a>
+                        <a href="/" class="nav-a">ДОМ</a>
                     </li>
                     <li>
-                        <a href="/shop" class="nav-a">Магазин</a>
+                        <a href="/shop" class="nav-a">МАГАЗИН</a>
                     </li>
                 </ul>
             </nav>
             <div class="header-profile">
+                <div class="cart-profile">
+                    {% with cart_quantity=cart|length %}
+                        {% if cart_quantity > 0 %}
+                            <p class="cart-quantity">{{ cart_quantity }}</p>
+                        {% endif %}
+                    {% endwith %}
+                    <a href="{% url 'cart:cart_detail' %}"><img src="{% static 'img/cart.png' %}" alt="" class="cart-img"></a>
+                </div>
                 <a href="/admin" class="login-button">Войти</a>
             </div>
         </div>
+        <a href="/"><img src="{% static 'img/logo.png' %}" alt="" class="main-logo"></a>
     </header>
     <div class="container">
         {% block content %}
