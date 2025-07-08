@@ -81,6 +81,7 @@ footer {
 }
 .header-div a:hover{
     text-shadow: var(--text-shadow);
+    color: white;
 }
 .header-logo {
     position: absolute;
