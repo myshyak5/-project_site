@@ -7,7 +7,7 @@
 <!-- d-flex -->
     <section class="cart">
         <div class="cart-title">
-            <h2>Корзина</h2>
+            <h3>Корзина</h3>
         </div>
         <div class="cart-cards">
             {% for item in cart %}
@@ -25,19 +25,21 @@
                                 <p>Количество: {{ item.quantity }}</p>
                             </div>
                         </div>
-                        <form action="{% url 'cart:cart_remove' product.id %}" method="post">
-                            <input type="submit" value="Удалить" class="remove-btn">
-                            {% csrf_token %}
-                        </form>
-                        <div class="cart-card-price">
-                            {% if product.discount %}
-                                <div class="cart_discount">
-                                    <p class="line">{{ product.price }}</p>
-                                    <p>{{ product.sell_price }} RUB</p>
-                                </div>
-                            {% else %}
+                        <div class="cart-card-btn">
+                            <div class="cart-card-price">
+                                {% if product.discount %}
+                                    <div class="cart_discount">
+                                        <p class="line">{{ product.price }}</p>
+                                        <p>{{ product.sell_price }} RUB</p>
+                                    </div>
+                                {% else %}
                                 <p class="price">{{ product.price }} RUB</p>
-                            {% endif %}
+                                {% endif %}
+                            </div>
+                            <form action="{% url 'cart:cart_remove' product.id %}" method="post">
+                                <input type="submit" value="Удалить" class="remove-btn">
+                                {% csrf_token %}
+                            </form>
                         </div>
                     </div>
                 {% endwith %}
