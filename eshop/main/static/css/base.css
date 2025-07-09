@@ -288,12 +288,21 @@ footer {
     text-decoration: line-through;
 }
 .detail-product {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: start;
+    column-gap: 20px;
+}
+.detail-img {
+    height: 100%;
+    max-width: 50vw;
     display: flex;
-    justify-content: flex-start;
 }
 .detail-image {
-    height: auto;
-    max-width: 50vw;
+    height: 100%;
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
 }
 .detail-description {
     margin: 0 40px;
