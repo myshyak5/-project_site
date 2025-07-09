@@ -34,7 +34,11 @@
                     {% endwith %}
                     <a href="{% url 'cart:cart_detail' %}"><img src="{% static 'img/cart.png' %}" alt="" class="cart-img"></a>
                 </div>
-                <a href="/admin" class="login-button">Войти</a>
+                {% if user.is_authenticated %}
+                    <a href="{% url 'users:logout' %}" class="login-button">Выход</a>
+                {% else %}
+                    <a href="{% url 'users:login' %}" class="login-button">Вход</a>
+                {% endif %}
             </div>
         </div>
         <a href="/"><img src="{% static 'img/logo.png' %}" alt="" class="main-logo"></a>
