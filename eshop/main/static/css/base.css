@@ -128,8 +128,13 @@ footer {
     align-items: center;
     column-gap: 15px;
     height: 195px;
-    border: var(--border-black);
-    /* border-bottom: var(--border-black); */
+    border-top: var(--border-black);
+}
+/* .cart-card + .cart-card {
+    border-top: var(--border-black);
+} */
+.cart-card:last-child {
+    border-bottom: var(--border-black);
 }
 .cart-card-img {
     display: flex;
