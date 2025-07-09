@@ -34,5 +34,12 @@
                 {% csrf_token %}
             </form>
         </div>
+        <div class="reset-pass">
+            <hr>
+            <!-- mt3 -->
+            <div class="">
+                <a href="{% url 'user:registration' %}">Create account</a>
+            </div>
+        </div>
     </section>
 {% endblock content %}
