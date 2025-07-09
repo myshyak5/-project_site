@@ -2,13 +2,13 @@ from django.shortcuts import render, redirect
 from django.contrib import auth, messages
 from django.urls import reverse
 from django.http import HttpResponseRedirect
-from .forms import UseerLoginForm, UserRegistrationForm, ProfileForm
+from .forms import UserLoginForm, UserRegistrationForm, ProfileForm
 from django.contrib.auth.decorators import login_required
 
 
 def login(request):
     if request.method == 'POST':
-        form = UseerLoginForm(data=request.POST)
+        form = UserLoginForm(data=request.POST)
         if form.is_valid():
             username = request.POST['username']
             password = request.POST['password']
@@ -17,7 +17,7 @@ def login(request):
                 auth.login(request, user)
                 return HttpResponseRedirect(reverse('main:product'))
     else:
-        form = UseerLoginForm()
+        form = UserLoginForm()
     # return render(request, 'users/login.html')
     return render(request, 'users/login.html', {'form': form})
 
