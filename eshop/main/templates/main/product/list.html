@@ -46,11 +46,11 @@
                                 <h5 class="title-card">{{ product.name }}</h5>
                                 {% if product.discount %}
                                     <div class="cart_discount">
-                                        <p class="line">{{ product.price }}</p>
+                                        <p class="line">{{ product.get_formatted_price }}</p>
                                         <p>{{ product.sell_price }} RUB</p>
                                     </div>
                                 {% else %}
-                                    <p class="price">{{ product.price }} RUB</p>
+                                    <p class="price">{{ product.get_formatted_price }} RUB</p>
                                 {% endif %}
                             </a>
                         </div>

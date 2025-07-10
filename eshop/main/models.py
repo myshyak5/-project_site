@@ -54,8 +54,14 @@ class Product(models.Model):
     def get_absolute_url(self):
         return reverse('main:product_detail', args=[self.slug])
     
+    def get_formatted_price(self):
+        if self.price == int(self.price):
+            return int(self.price)
+        return self.price
+    
     def sell_price(self):
         if self.discount:
-            return round(self.price-self.price*self.discount/100, 2)
+            self.price = round(self.price-self.price*self.discount/100, 2)
+            return self.get_formatted_price()
         return self.price
     

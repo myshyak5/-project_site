@@ -7,6 +7,8 @@ from django.contrib.auth.decorators import login_required
 
 
 def login(request):
+    if request.user.is_authenticated:
+        return redirect(reverse('users:profile'))
     if request.method == 'POST':
         form = UserLoginForm(data=request.POST)
         if form.is_valid():
@@ -31,7 +33,7 @@ def registration(request):
             return HttpResponseRedirect(reverse('users:login'))
     else:
         form = UserRegistrationForm()
-    return render(request, 'users/registration.html')
+    return render(request, 'users/registration.html', {'form': form})
 
 @login_required(login_url='/user/login/')
 def profile(request):

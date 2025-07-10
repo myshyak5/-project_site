@@ -4,42 +4,36 @@
 {% block title %}Login{% endblock title %}
 
 {% block content %}
-<!-- d-flex -->
-    <section class="Login">
+    <section class="login-reg">
         <div class="login-title">
             <h2>Вход</h2>
             <form action="{% url 'users:login' %}" method="post">
                 {% if request.GET.next %}
                     <input type="hidden" name="next" value="{{ request.GET.next }}">
                 {% endif %}
-                <!-- mb-3 -->
-                <div class="">
-                    <!-- form-label form style -->
-                    <label for="id_username" class="form-label">Логин</label>
-                    <!-- form-control form style -->
-                    <input type="text" class="form-control"
-                    value="{% if form.username.value %}{{ form.username.value }}{% endif %}"
-                    name="username" id="id_username" required>
-                </div>
-                <!-- mb-3 -->
-                <div class="form-label">
-                    <!-- form-label form style -->
-                    <label for="id_password" class="">Пароль</label>
-                    <!-- form-control form style -->
-                    <input type="password" class="form-control"
-                    name="password" id="id_password" required>
-                </div>
-                <!-- form style -->
+                 <div class="row">
+                    <div class="form">
+                        <label for="id_username" class="form-label">
+                            Логин
+                        </label>
+                        <input type="text" class="form-control"
+                        value="{% if form.username.value %}{{ form.username.value }}{% endif %}"
+                        name="username" id="id_username" required>
+                    </div>
+                    <div class="form">
+                        <label for="id_password" class="form-label">
+                            Пароль
+                        </label>
+                        <input type="password" class="form-control"
+                        name="password" id="id_password" required>
+                    </div>
+                 </div>
                 <button type="submit" class="login-btn">Войти</button>
                 {% csrf_token %}
             </form>
         </div>
-        <div class="reset-pass">
-            <hr>
-            <!-- mt3 -->
-            <div class="">
-                <a href="{% url 'users:registration' %}">Регистрация</a>
-            </div>
+        <div class="reg-btn">
+            <a href="{% url 'users:registration' %}">Регистрация</a>
         </div>
     </section>
 {% endblock content %}

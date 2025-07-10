@@ -18,11 +18,11 @@
         <p class="p-description">Описание: {{ product.description }}</p>
         {% if product.discount %}
             <div class="cart_discount">
-                <p class="line">{{ product.price }}</p>
+                <p class="line">{{ product.get_formatted_price }}</p>
                 <p>{{ product.sell_price }} RUB</p>
             </div>
         {% else %}
-            <p class="price">{{ product.price }} RUB</p>
+            <p class="price">{{ product.get_formatted_price }} RUB</p>
         {% endif %}
         <form action="{% url 'cart:cart_add' product.id %}" class="qform" method="post">
             <div class="cart-form">
@@ -31,7 +31,6 @@
             </div>
             <input type="submit" class="add-to-cart-btn" value="В корзину">
         </form>
-        <!-- <a href="#" class="cart-btn">В корзину</a> -->
     </div>
 </div>
 {% endblock content %}
