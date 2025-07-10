@@ -4,62 +4,106 @@
 {% block title %}Registration{% endblock title %}
 
 {% block content %}
-<!-- d-flex -->
-    <section class="lofin-reg">
+    <section class="login-reg">
         <div class="login-title">
-            <h2>Registration</h2>
-            <form action="{% url 'user:registration' %}" method="post">
+            <h2>Регистрация</h2>
+            <form action="{% url 'users:registration' %}" method="post">
+                {% if request.GET.next %}
+                    <input type="hidden" name="next" value="{{ request.GET.next }}">
+                {% endif %}
                 <div class="row">
-                    <div class="">
+                    <div class="form">
                         <label for="id_first_name" class="form-label">
-                            First name
+                            Имя
                         </label>
-                        <input type="text" class="form-control" id="id_first_name"
+                        <input type="text" class="form-control {% if form.first_name.errors %}is-invalid{% endif %}" id="id_first_name"
                         value="{% if form.first_name.value %}{{ form.first_name.value }}{% endif %}"
-                        name="first_name" placeholder="your first name" required>
+                        name="first_name" required>
+                        {% if form.first_name.errors %}
+                            <div class="invalid-feedback">
+                                {% for error in form.first_name.errors %}
+                                    {{ error }}
+                                {% endfor %}
+                            </div>
+                        {% endif %}
                     </div>
-                    <div class="">
+                    <div class="form">
                         <label for="id_last_name" class="form-label">
-                            Last name
+                            Фамилия
                         </label>
-                        <input type="text" class="form-control" id="id_last_name"
+                        <input type="text" class="form-control {% if form.last_name.errors %}is-invalid{% endif %}" id="id_last_name"
                         value="{% if form.last_name.value %}{{ form.last_name.value }}{% endif %}"
-                        name="last_name" placeholder="your last name" required>
+                        name="last_name" required>
+                        {% if form.last_name.errors %}
+                            <div class="invalid-feedback">
+                                {% for error in form.last_name.errors %}
+                                    {{ error }}
+                                {% endfor %}
+                            </div>
+                        {% endif %}
                     </div>
-                    <div class="">
+                    <div class="form">
                         <label for="id_username" class="form-label">
-                            Username
+                            Логин
                         </label>
-                        <input type="text" class="form-control" id="id_username"
+                        <input type="text" class="form-control {% if form.username.errors %}is-invalid{% endif %}" id="id_username"
                         value="{% if form.username.value %}{{ form.username.value }}{% endif %}"
-                        name="username" placeholder="your username" required>
+                        name="username" required>
+                        {% if form.username.errors %}
+                            <div class="invalid-feedback">
+                                {% for error in form.username.errors %}
+                                    {{ error }}
+                                {% endfor %}
+                            </div>
+                        {% endif %}
                     </div>
-                    <div class="">
+                    <div class="form">
                         <label for="id_email" class="form-label">
-                            Email
+                            Почта
                         </label>
-                        <input type="email" class="form-control" id="id_email"
+                        <input type="email" class="form-control {% if form.email.errors %}is-invalid{% endif %}" id="id_email"
                         value="{% if form.email.value %}{{ form.email.value }}{% endif %}"
-                        name="email" placeholder="your email" required>
+                        name="email" required>
+                        {% if form.email.errors %}
+                            <div class="invalid-feedback">
+                                {% for error in form.email.errors %}
+                                    {{ error }}
+                                {% endfor %}
+                            </div>
+                        {% endif %}
                     </div>
-                    <div class="">
+                    <div class="form">
                         <label for="id_password1" class="form-label">
-                            Password
+                            Пароль
                         </label>
-                        <input type="password" class="form-control" id="id_password1"
+                        <input type="password" class="form-control {% if form.password1.errors %}is-invalid{% endif %}" id="id_password1"
                         value="{% if form.password1.value %}{{ form.password1.value }}{% endif %}"
-                        name="password1" placeholder="your password" required>
-                    </div>
-                    <div class="">
+                        name="password1" required>
+                        {% if form.password1.errors %}
+                            <div class="invalid-feedback">
+                                {% for error in form.password1.errors %}
+                                    {{ error }}
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div> 
+                    <div class="form">
                         <label for="id_password2" class="form-label">
-                            Password
+                            Подтвердите пароль
                         </label>
-                        <input type="password" class="form-control" id="id_password2"
+                        <input type="password" class="form-control {% if form.password2.errors %}is-invalid{% endif %}" id="id_password2"
                         value="{% if form.password2.value %}{{ form.password2.value }}{% endif %}"
-                        name="password2" placeholder="your password" required>
+                        name="password2" required>
+                        {% if form.password2.errors %}
+                            <div class="invalid-feedback">
+                                {% for error in form.password2.errors %}
+                                    {{ error }}
+                                {% endfor %}
+                            </div>
+                        {% endif %}
                     </div>
                 </div>
-                <button type="submit" class="login-btn">Register</button>
+                <button type="submit" class="login-btn">Регистрация</button>
                 {% csrf_token %}
             </form>
         </div>

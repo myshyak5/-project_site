@@ -4,7 +4,6 @@
 {% block title %}Cart{% endblock title %}
 
 {% block content %}
-<!-- d-flex -->
     <section class="cart">
         <div class="cart-title">
             <h3>Корзина</h3>
@@ -12,7 +11,6 @@
         <div class="cart-cards">
             {% for item in cart %}
                 {% with product=item.product %}
-                    <!-- d-flex -->
                     <div class="cart-card">
                         <div class="cart-card-img">
                             <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static 'img/no_image.png' %}{% endif %}" alt="" class="detail-image">
@@ -29,11 +27,11 @@
                             <div class="cart-card-price">
                                 {% if product.discount %}
                                     <div class="cart_discount">
-                                        <p class="line">{{ product.price }}</p>
+                                        <p class="line">{{ product.get_formatted_price }}</p>
                                         <p>{{ product.sell_price }} RUB</p>
                                     </div>
                                 {% else %}
-                                <p class="price">{{ product.price }} RUB</p>
+                                <p class="price">{{ product.get_formatted_price }} RUB</p>
                                 {% endif %}
                             </div>
                             <form action="{% url 'cart:cart_remove' product.id %}" method="post">
@@ -48,7 +46,6 @@
         <div class="total">
             <h5>Итого: {{ cart.get_total_price }} RUB</h5>
         </div>
-        <!-- d-flex gap-3 -->
         <div class="cart-buttons">
             <a href="/shop" class="cart-btn">Завершить покупки</a>
             {% with cart_quantity=cart|length %}
