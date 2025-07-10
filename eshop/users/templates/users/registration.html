@@ -7,59 +7,59 @@
 <!-- d-flex -->
     <section class="lofin-reg">
         <div class="login-title">
-            <h2>Registration</h2>
-            <form action="{% url 'user:registration' %}" method="post">
+            <h2>Регистрация</h2>
+            <form action="{% url 'users:registration' %}" method="post">
                 <div class="row">
                     <div class="">
                         <label for="id_first_name" class="form-label">
-                            First name
+                            Имя
                         </label>
                         <input type="text" class="form-control" id="id_first_name"
                         value="{% if form.first_name.value %}{{ form.first_name.value }}{% endif %}"
-                        name="first_name" placeholder="your first name" required>
+                        name="first_name" required>
                     </div>
                     <div class="">
                         <label for="id_last_name" class="form-label">
-                            Last name
+                            Фамилия
                         </label>
                         <input type="text" class="form-control" id="id_last_name"
                         value="{% if form.last_name.value %}{{ form.last_name.value }}{% endif %}"
-                        name="last_name" placeholder="your last name" required>
+                        name="last_name" required>
                     </div>
                     <div class="">
                         <label for="id_username" class="form-label">
-                            Username
+                            Логин
                         </label>
                         <input type="text" class="form-control" id="id_username"
                         value="{% if form.username.value %}{{ form.username.value }}{% endif %}"
-                        name="username" placeholder="your username" required>
+                        name="username" required>
                     </div>
                     <div class="">
                         <label for="id_email" class="form-label">
-                            Email
+                            Почта
                         </label>
                         <input type="email" class="form-control" id="id_email"
                         value="{% if form.email.value %}{{ form.email.value }}{% endif %}"
-                        name="email" placeholder="your email" required>
+                        name="email" required>
                     </div>
                     <div class="">
                         <label for="id_password1" class="form-label">
-                            Password
+                            Пароль
                         </label>
                         <input type="password" class="form-control" id="id_password1"
                         value="{% if form.password1.value %}{{ form.password1.value }}{% endif %}"
-                        name="password1" placeholder="your password" required>
+                        name="password1" required>
                     </div>
                     <div class="">
                         <label for="id_password2" class="form-label">
-                            Password
+                            Пароль
                         </label>
                         <input type="password" class="form-control" id="id_password2"
                         value="{% if form.password2.value %}{{ form.password2.value }}{% endif %}"
-                        name="password2" placeholder="your password" required>
+                        name="password2" required>
                     </div>
                 </div>
-                <button type="submit" class="login-btn">Register</button>
+                <button type="submit" class="login-btn">Регистрация</button>
                 {% csrf_token %}
             </form>
         </div>

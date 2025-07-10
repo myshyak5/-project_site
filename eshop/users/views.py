@@ -15,10 +15,9 @@ def login(request):
             user = auth.authenticate(username=username, password=password)
             if user:
                 auth.login(request, user)
-                return HttpResponseRedirect(reverse('main:product'))
+                return HttpResponseRedirect(reverse('main:product_list'))
     else:
         form = UserLoginForm()
-    # return render(request, 'users/login.html')
     return render(request, 'users/login.html', {'form': form})
 
 def registration(request):
@@ -29,22 +28,22 @@ def registration(request):
             user = form.instance
             auth.login(request, user)
             messages.success(request, f'{user.username}, successful registration!')
-            return HttpResponseRedirect(reverse('user:login'))
+            return HttpResponseRedirect(reverse('users:login'))
     else:
         form = UserRegistrationForm()
     return render(request, 'users/registration.html')
 
-@login_required
+@login_required(login_url='/user/login/')
 def profile(request):
     if request.method == 'POST':
-        form = ProfileForm(data=request.POST, isinstance=request.user,
+        form = ProfileForm(data=request.POST, instance=request.user,
                            files=request.FILES)
         if form.is_valid():
             form.save()
             messages.success(request, 'Profile was changed')
-            return HttpResponseRedirect(reverse('user:profile'))
+            return HttpResponseRedirect(reverse('users:profile'))
     else:
-        form = ProfileForm(isinstance=request.user)
+        form = ProfileForm(instance=request.user)
     return render(request, 'users/profile.html', {'form': form})
 
 def logout(request):

@@ -8,7 +8,7 @@
     <div class="">
         <!-- p4 m4 mx2 bgwhite -->
         <div class="profile">
-            <h2>Profile</h2>
+            <h2>Профиль</h2>
             <form action="{% url 'users:profile' %}" method="post" enctype="multipart/form-data">
                 <!-- d-flex -->
                 <div class="">
@@ -16,7 +16,7 @@
                         <!-- col-md12 -->
                         <div class="">
                             {% if user.image %}
-                                <img src="{{ user.image.url }}" alt="" class="img-fluid">
+                                <img src="{{ users.image.url }}" alt="" class="img-fluid">
                             {% else %}
                                 <img src="{% static 'img/no_image.png' %}" alt="" class="img-fluid">
                             {% endif %}
@@ -24,33 +24,32 @@
                             name="image" accept="image/*">
                         </div>
                         <div>
-                            <label for="id_first_name" class="">first name</label>
+                            <label for="id_first_name" class="">Имя</label>
                             <input type="text" name="" class="form-control" id="id_first_name"
-                            name="first_name" placeholder="your first name" value="{{ form.first_name.value}}" required>
+                            name="first_name" placeholder="Имя" value="{{ form.first_name.value}}" required>
                         </div>
                         <div>
-                            <label for="id_last_name" class="">last name</label>
+                            <label for="id_last_name" class="">Фамилия</label>
                             <input type="text" name="" class="form-control" id="id_last_name"
-                            name="last_name" placeholder="your last name" value="{{ form.last_name.value}}" required>
+                            name="last_name" placeholder="Фамилия" value="{{ form.last_name.value}}" required>
                         </div>
                     </div>
                     <div class="2box">
                         <div>
-                            <label for="id_username" class="">username</label>
+                            <label for="id_username" class="">Логин</label>
                             <input type="text" name="" class="form-control" id="id_username"
-                            name="username" placeholder="your username" value="{{ form.username.value}}" required>
+                            name="username" placeholder="Логин" value="{{ form.username.value}}" required>
                         </div>
                         <div>
-                            <label for="id_email" class="">email</label>
+                            <label for="id_email" class="">Почта</label>
                             <input type="email" name="" class="form-control" id="email"
-                            name="email" placeholder="your email" value="{{ form.email.value}}" required>
+                            name="email" placeholder="Почта" value="{{ form.email.value}}" required>
                         </div>
                     </div>
                 </div>
-                <button type="submit" class="profile_btn">Save</button>
+                <button type="submit" class="profile_btn">Сохранить</button>
                 {% csrf_token %}
             </form>
         </div>
-
     </div>
 {% endblock content %}
