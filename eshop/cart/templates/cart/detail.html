@@ -47,7 +47,7 @@
             <h5>Итого: {{ cart.get_total_price }} RUB</h5>
         </div>
         <div class="cart-buttons">
-            <a href="/shop" class="cart-btn">Завершить покупки</a>
+            <a href="/shop" class="cart-btn">Продолжить покупки</a>
             {% with cart_quantity=cart|length %}
                 {% if cart_quantity > 0 %}
                     <a href="#" class="cart-btn">Касса</a>
