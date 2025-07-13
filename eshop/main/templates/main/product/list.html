@@ -41,7 +41,8 @@
                         <div class="item">
                             <a href="{{ product.get_absolute_url }}" class="item-card">
                                 <div class="div-img">
-                                    <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static 'img/no_image.png' %}{% endif %}" alt="" class="card-img">
+                                    <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static 'img/no_image.png' %}{% endif %}" alt=""
+                                    class="card-img">
                                 </div>
                                 <h5 class="title-card">{{ product.name }}</h5>
                                 {% if product.discount %}

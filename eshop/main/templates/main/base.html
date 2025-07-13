@@ -1,15 +1,12 @@
-<!--C:\!project_site\eshop\manage.py runserver-->
-{%load static %}
+{% load static %}
 <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{% endblock title %}</title>
-
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
 </head>
-
 <body>
     <header>
         <div class="header-div">
@@ -30,7 +27,8 @@
                             <p class="cart-quantity">{{ cart_quantity }}</p>
                         {% endif %}
                     {% endwith %}
-                    <a href="{% url 'cart:cart_detail' %}"><img src="{% static 'img/cart.png' %}" alt="" class="cart-img"></a>
+                    <a href="{% url 'cart:cart_detail' %}"><img src="{% static 'img/cart.png' %}" alt="" class="cart-img">
+                    </a>
                 </div>
                 {% if user.is_authenticated %}
                 <a href="{% url 'users:profile' %}" class="login-button">Профиль</a>
@@ -47,7 +45,7 @@
         {% endblock content %}
     </div>
     <footer>
-        <div class="gi-project">
+        <div class="git-project">
             <a href="https://github.com/myshyak5/-project_site" target="git_blank">
                 <img src="{% static 'img/git_project.png' %}" alt="" class="git-img">
             </a>
